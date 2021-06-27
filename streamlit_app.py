@@ -1,6 +1,5 @@
 from fastai.text.all import *
 import streamlit as st
-import _pickle as cPickle
 
 # Streamlit launches a web app
 st.markdown("# Readability Test")
@@ -31,4 +30,3 @@ class HowReadable:
 if __name__ == '__main__':
     model_file = 'model_lstm.pkl'  # TODO: to be parameterized
     how_readable = HowReadable(model_file)
-    
