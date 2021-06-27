@@ -8,5 +8,15 @@ dependencies:
   - pytorch>=1.6
   - torchvision
   - pip
+  - numpy=1.20.2
   - pip:
-    - -r file:requirements.txt
+    - fastai>=2.0.0
+    - graphviz
+    - ipywidgets
+    - matplotlib
+    - nbdev>=0.2.12
+    - pandas
+    - scikit_learn
+    - azure-cognitiveservices-search-imagesearch
+    - sentencepiece
+    - streamlit
