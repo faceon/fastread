@@ -8,6 +8,8 @@ This repo is to build a ML service which predicts readability of given text.
 
 ### How to run this app on your local machine
 
+Before going forward, install git-lfs from https://git-lfs.github.com/ for big file support.
+
 `git clone https://github.com/faceon/howreadable.git`
 
 `cd howreadable`
