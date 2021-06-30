@@ -4,7 +4,7 @@ import streamlit as st
 # Streamlit launches a web app
 st.markdown("# Readability Test")
 
-class HowReadable:
+class Fastread:
     def __init__(self, model_file):
         # Load model file into a learner
         self.learner = load_learner(model_file)
@@ -29,4 +29,4 @@ class HowReadable:
 
 if __name__ == '__main__':
     model_file = 'model_lstm.pkl'  # TODO: to be parameterized
-    how_readable = HowReadable(model_file)
+    fastread = Fastread(model_file)
