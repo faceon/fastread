@@ -1,32 +1,30 @@
 from fastai.text.all import *
+import fastai
 import streamlit as st
 
-# Streamlit launches a web app
-st.markdown("# Readability Test")
 
-class Fastread:
-    def __init__(self, model_file):
-        # Load model file into a learner
-        self.learner = load_learner(model_file)
+def get_text():
+    return st.text_input(label='Input text to rate readability score',
+                         max_chars=300,)
 
-        # Load a text input form
-        self.text = self.get_text()
 
-        # Show readability score
-        self.show_pred()
+@st.cache(hash_funcs={TextLearner: (lambda x: 1)})  
+# This forces get_learner to cache the model always
+def get_learner(model_file):
+    learner = load_learner(model_file)
+    return learner
 
-    def get_text(self):
-        return st.text_input(
-            label='Input text to rate readability score',
-            max_chars=300,
-        )
-    
-    def show_pred(self):
-        if self.text:
-            pred = self.learner.predict(self.text)[0][0]
-            st.write(f'Readability score: {pred}')
+
+def show_pred(text, model):
+    if text:
+        pred = learner.predict(text)[0][0]
+        st.write(f'Readability score: {pred}')
 
 
 if __name__ == '__main__':
-    model_file = 'model_lstm.pkl'  # TODO: to be parameterized
-    fastread = Fastread(model_file)
+    MODEL_FILE = 'model_lstm.pkl'
+    st.title("Readability Test")
+    
+    text = get_text()
+    learner = get_learner(MODEL_FILE)
+    show_pred(text, learner)
